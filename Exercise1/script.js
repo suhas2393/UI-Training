@@ -11,10 +11,11 @@ let submit = document.querySelector("button");
 let main = document.querySelector("main");
 
 const article = document.createElement("article");
-article.innerHTML = ``;
+
 var id=0;
 
 submit.addEventListener("click",(event)=>{
+    article.innerHTML = ``;
     id=id+1;
     event.preventDefault();
     let bagPackName = name.value;
@@ -27,23 +28,23 @@ submit.addEventListener("click",(event)=>{
         manyear.value
     )
     backpackArray.push(bagPackName);
-    // console.log(backpackArray);
-    
-    // console.log("Button is clicked!!!");
 
     backpackArray.forEach((ele)=>{
         article.innerHTML+=
         `
-        <div id=${ele.id}>
-        Name : ${ele.name}
-        Color : ${ele.color}
-        Volume : ${ele.volume}
-        Price : ${ele.price}
-        Manufature year : ${ele.manyear}
+
+        <div id=${ele.id} class="card mx-auto mt-3" style="width:18rem;">
+        <ul class="list-group list-group-flush">
+        <li class="list-group-item"> Name : ${ele.name} </li>
+        <li class="list-group-item"> Color : ${ele.color} </li>
+        <li class="list-group-item"> Volume : ${ele.volume} </li>
+        <li class="list-group-item"> Price : ${ele.price} </li>
+        <li class="list-group-item"> Manufature year : ${ele.manyear} </li>
+        </ul>
         </div>
+
         `
 
-    // console.log(ele.name);
     }
 
     )
@@ -51,5 +52,4 @@ submit.addEventListener("click",(event)=>{
 
 main.append(article);
 
-// function arrayAppend()
 
