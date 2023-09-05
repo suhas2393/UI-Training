@@ -6,11 +6,12 @@ let output = document.querySelector("h3");
 
 
 input.addEventListener("keyup",()=>{
-    if(input.value.length>=2){
-        button.disabled = true;
+    console.log(input.value)
+    if(input.value.length === 1 && Number(input.value)>=0 && Number(input.value)<=9){
+            button.disabled = false;
     }
     else{
-        button.disabled = false;
+        button.disabled = true;
     }
 })
 

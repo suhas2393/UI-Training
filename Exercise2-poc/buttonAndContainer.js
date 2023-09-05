@@ -6,15 +6,15 @@ let output = document.querySelector("h3");
 
 
 input.addEventListener("keyup",()=>{
-    if(input.value.length>=2){
-        button.disabled = true;
+    console.log(input.value)
+    if(input.value.length === 1 && Number(input.value)>=0 && Number(input.value)<=9){
+            button.disabled = false;
     }
     else{
-        button.disabled = false;
+        button.disabled = true;
     }
 })
 
-// var capture = false;
 
 input.addEventListener("click",(e)=>{
     e.stopPropagation();
@@ -23,10 +23,13 @@ input.addEventListener("click",(e)=>{
 button.addEventListener("click",(e)=>{
     e.preventDefault();
     console.log("Button was clicked!!");
+    e.stopPropagation()
     output.innerHTML = `Entered value is ${input.value}`;
+
 },false)
 
 form.addEventListener("click",(event)=>{
+
     event.stopPropagation();
     console.log("Form is pressed!!");
     
@@ -34,6 +37,7 @@ form.addEventListener("click",(event)=>{
 
 
 container.addEventListener("click",(e)=>{
+    e.preventDefault();
+
     console.log("Container is clicked!!");
-    e.stopPropagation();
 },true)

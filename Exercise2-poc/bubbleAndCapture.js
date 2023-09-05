@@ -6,16 +6,13 @@ let form = document.querySelector("#form");
 let container = document.querySelector("#container");
 let output = document.querySelector("h3");
 
-var expr = /[0-9]/g;
 input.addEventListener("keyup",()=>{
     console.log(input.value)
-    if(String(input.value).length>=2){
-        // if(input.value<=0 && input.value>=9){
-            button.disabled = true;
-        // }
+    if(input.value.length === 1 && Number(input.value)>=0 && Number(input.value)<=9){
+            button.disabled = false;
     }
     else{
-        button.disabled = false;
+        button.disabled = true;
     }
 })
 
