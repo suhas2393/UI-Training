@@ -41,7 +41,7 @@ button.addEventListener("click",(e)=>{
 form.addEventListener("click",(e)=>{
 
     console.log("Form is pressed!!");
-    if (Number(input.value) %2 === 1){
+    if (Number(input.value) %2 === 1){  //this code line is not required. We can just stop the propogation
         e.stopPropagation();
     }
 },capture)
@@ -51,6 +51,6 @@ container.addEventListener("click",()=>{
 },capture)
 
 container.addEventListener('customEvent',()=>{
-    console.log("Custom event Container is clicked!!");
+    console.log("Container is clicked!!");
 })
 
