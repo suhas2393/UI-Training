@@ -9,7 +9,7 @@ Proof of concept to show how the event flows between different elements.
 - Task 2.1: Reverse the calling flow.
 - Task 3: If the input=0, button should trigger the event.
 - Task 4: If the input is ODD, button and form should be triggered.
-- Task 5: If the input is even, button and container should be triggered.
+- Task 5: If the input is EVEN, button and container should be triggered.
 
 #### I have implemented 4 functionalities to demonstrate this:
 
