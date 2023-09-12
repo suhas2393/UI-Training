@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XIQ-Login</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/332d974c54.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- div for the left side of page  -->
+    <div class="split left">
+    <img src="images/new_login_logo.svg" alt="banner.svg" class="logo">
+
+    <!-- Form is here  -->
+      <div class="form-box">
+        <h3>Sign In</h3>
+        <form action="mainpage.html">
+          <div class="input-group">
+            <div class="input-field">
+              <i class="fa-solid fa-user"></i>
+              <input type="text" id="username" placeholder="Username" />
+            </div>
+
+            <div class="input-field">
+              <i class="fa-solid fa-key"></i>
+              <input type="text" id="password" placeholder="Password" />
+            </div>
+          </div>
+
+          <button>Submit</button>
+        </form>
+        
+      </div>
+      <div style="position:fixed; height:70px; padding:5px; bottom:0px;">
+        <h4 class="date">Date will be displeyed here</h4>
+      </div>
+        
+    </div>
+    
+<!-- Form ends here  -->
+    <!-- div for the right side of page  -->
+    <div class="split right">
+      <img src="images/banner.svg" alt="banner.svg" class="image" />
+    </div>
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
