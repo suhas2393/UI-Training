@@ -2,11 +2,11 @@ import objArray from "./database.js";
 
 var moduleArr = objArray[1];
 
-let heading = document.createElement("h2");
 
-heading.innerHTML = `Logged-In user : ${localStorage.getItem("username")}`;
 
 let showLength = document.createElement("h2");
+
+showLength.className = "moduleLen"
 
 showLength.innerHTML = `Number of modules : ${moduleArr.length}`
 
@@ -14,7 +14,7 @@ let userText = document.querySelector(".userText");
 userText.innerHTML = `Logged-In user : ${localStorage.getItem("username")}`
 
 const main = document.querySelector("main")
-main.append(heading);
+
 main.append(showLength);
 
 var container = document.createElement("div");

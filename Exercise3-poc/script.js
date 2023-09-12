@@ -11,6 +11,8 @@ dateElement.innerHTML = date;
 
 // console.log(objArray[0][0].username);
 
+
+
 button.addEventListener("click",(e)=>{
     e.preventDefault();
     console.log("clicked!!");
@@ -35,7 +37,12 @@ button.addEventListener("click",(e)=>{
             return;
         }
     }
-    window.alert("Incorrect login credentials. Please try again.");
+    if(username.value==='' && password.value ===''){
+        window.alert("Please enter username and password.");
+    }
+    else{
+        window.alert("Incorrect login credentials. Please try again.");
+    }
 })
 
 

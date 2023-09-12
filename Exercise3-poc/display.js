@@ -13,6 +13,7 @@ userText.innerHTML = `Logged-In user : ${localStorage.getItem("username")}`
 const main = document.querySelector("main");
 
 let heading = document.createElement('h3');
+heading.className = "moduleDesc"
 heading.innerHTML = `Description for ${newKey}`;
 
 let textBox = document.createElement('div');

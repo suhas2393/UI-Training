@@ -57,6 +57,7 @@ html,body{
 }
 
 .extreme{
+    padding-left: 500px;;
     transform: scale(0.5);
 }
 
@@ -70,7 +71,7 @@ html,body{
 .container > div {
     background-color: #f1f1f1;
     width: 200px;
-    margin: 10px;
+    margin: 20px;
     text-align: center;
     line-height: 75px;
     font-size: 30px;
@@ -133,8 +134,46 @@ form{
 
 .username h4{
     color:white;
-    margin: 50px;
+    margin: 40px;
     font-family: sans-serif;
+    /* padding-bottom: 100px; */
 }
 
 
+.mainpage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.moduleLen{
+    margin: 30px;
+}
+
+.textPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.moduleDesc{
+    margin: 30px;
+    font-family: monospace ;
+    font-size: 25px;
+}
+
+.textBox{
+    padding: 0;
+    height: 200px;
+    position: relative;
+    left: 0;
+    outline: none;
+    border: 1px solid #cdcdcd;
+    border-color: rgba(0,0,0,.15);
+    background-color: white;
+    font-size: 20px;
+    width:50%;
+    padding: 10px;
+}
