@@ -34,7 +34,7 @@ var modules = container.querySelectorAll('.moduleBox')
 modules.forEach((item)=>{
 
     item.addEventListener('click',(e)=>{
-
+        console.log(item.innerHTML)
         let value = e.target.innerText.replace(/\s+/g,'').trim()
         window.location.href = 'display.html'+"?key="+value;
     })
