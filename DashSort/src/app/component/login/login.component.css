@@ -1,7 +1,38 @@
-#section1{
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    width: 100%;
     height: 100%;
 }
 
-#section2{
+.split{
     height: 100%;
+    /* width: 50%; */
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    display: flex;
 }
+
+.left{
+    width: 35%;
+    left: 0;
+    background-color:white;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.right{
+    width: 65%;
+    right: 0;
+    background-color: #22004d;
+    color: azure;
+    justify-content: center;
+    align-items: center;
+}
+
