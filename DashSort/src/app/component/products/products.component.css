@@ -1,0 +1,23 @@
+.categories{
+    display: flex;
+    min-width: 0;
+    width: 100%;
+    word-wrap: break-word;
+    background-color:#a9cece;
+    background-clip: border-box;
+    position: relative;
+    /* flex-direction: column; */
+    border: 1px solid black;
+    border-radius: .25rem;
+    justify-content: space-between;
+    /* align-items: ; */
+}
+
+.items,a{
+    display: flex;
+    flex-direction: column;
+    /* background-color: brown; */
+    justify-content: center;
+    align-items: center;
+}
+

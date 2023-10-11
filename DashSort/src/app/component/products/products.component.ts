@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiService } from 'src/app/shared/api.service';
 
 @Component({
   selector: 'app-products',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent {
+
+  productList : any;
+  constructor(private api:ApiService){}
+
+
 
 }

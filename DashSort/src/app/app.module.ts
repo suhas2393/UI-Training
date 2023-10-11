@@ -11,6 +11,10 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
 import { HeaderComponent } from './component/header/header.component';
 import { ProductsComponent } from './component/products/products.component';
+import { CartComponent } from './component/cart/cart.component';
+import { FooterComponent } from './component/footer/footer.component';
+import { ProfileComponent } from './component/profile/profile.component';
+import {HttpClientModule} from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -20,13 +24,17 @@ import { ProductsComponent } from './component/products/products.component';
     DashboardComponent,
     ForgotPasswordComponent,
     HeaderComponent,
-    ProductsComponent
+    ProductsComponent,
+    CartComponent,
+    FooterComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

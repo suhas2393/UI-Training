@@ -9,12 +9,15 @@ export class AuthService {
 
   constructor(private fireAuth : AngularFireAuth,private router:Router) { }
 
+  username:string = '';
+
   // Logging In 
   login(email:string,password:string){
     this.fireAuth.signInWithEmailAndPassword(email,password).then((res)=>{
       localStorage.setItem('token','true');
       this.router.navigate(['/dashboard']);
-      console.log(res.user)
+      // console.log(typeof(res.user))
+      this.username = res.user?.email!;
     },err=>{
         if(err.message === 'Firebase: Error (auth/invalid-login-credentials).'){
           alert('Invalid login credentials!!!');
@@ -23,6 +26,8 @@ export class AuthService {
         console.log(err.message);
     })
   }
+
+
 
   // registration of user 
   register(email:string,password:string){
@@ -33,6 +38,10 @@ export class AuthService {
       alert(err.message)
       this.router.navigate(['/register']);
     })
+  }
+
+  getUser(){
+    return this.username;
   }
 
   // Logging out 
