@@ -1,55 +1,96 @@
 <div class="container-fluid">
-    <div class="categories container-fluid d-flex">
-
-        <div class="items">
-            <a href="" style="text-decoration: none;">
-                <img src="https://cdn1.smartprix.com/rx-iViQd4cI8-w100-h100/ViQd4cI8.webp" alt="mobile">
-                <h6>Mobiles</h6>
-            </a>
-        </div>
-        <div class="items">
-            <a href="" style="text-decoration: none;">
-                <img src="https://cdn1.smartprix.com/rx-iG5DXN6vc-w100-h100/G5DXN6vc.webp" alt="">
-                <h6>Tablets</h6>
-            </a>
-        </div>
-        <div class="items">
-            <a href="" style="text-decoration: none;">
-                <img src="https://cdn1.smartprix.com/rx-i6invpMY2-w100-h100/6invpMY2.webp" alt="">
-                <h6>Laptops</h6>
-            </a>
-        </div>
-        <div class="items">
-            <a href="" style="text-decoration: none;">
-                <img src="https://cdn1.smartprix.com/rx-idTmyxzGZ-w100-h100/dTmyxzGZ.webp" alt="">
-                <h6>TVs</h6>
-            </a>
-        </div>
-
-        <div class="items">
-            <a href="" style="text-decoration: none;">
-                <img src="https://cdn1.smartprix.com/rx-iR6SKymCH-w100-h100/R6SKymCH.webp" alt="">
-                <h6>Cameras</h6>
-            </a>
-        </div>
-        <div class="items">
-            <a href="" style="text-decoration: none;">
-                <img src="https://cdn1.smartprix.com/rx-ikAfBBj8K-w100-h100/kAfBBj8K.webp" alt="">
-                <h6>ACs</h6>
-            </a>
-        </div>
-        <div class="items">
-            <a href="" style="text-decoration: none;">
-                <img src="https://cdn1.smartprix.com/rx-i0g6nr7Fk-w100-h100/0g6nr7Fk.webp" alt="">
-                <h6>Fridge</h6>
-            </a>
-        </div>
-        <div class="items">
-            <a href="" style="text-decoration: none;">
-                <img src="https://cdn1.smartprix.com/rx-iUfE0ayqy-w100-h100/UfE0ayqy.webp" alt="">
-                <h6>Earphones</h6>
-            </a>
-        </div>
-        
+  <div class="categories container-fluid d-flex">
+    <div class="items">
+      <a href="" style="text-decoration: none">
+        <img
+          src="https://cdn1.smartprix.com/rx-iViQd4cI8-w100-h100/ViQd4cI8.webp"
+          alt="mobile"
+        />
+        <h6>Mobiles</h6>
+      </a>
     </div>
+    <div class="items">
+      <a href="" style="text-decoration: none">
+        <img
+          src="https://cdn1.smartprix.com/rx-iG5DXN6vc-w100-h100/G5DXN6vc.webp"
+          alt=""
+        />
+        <h6>Tablets</h6>
+      </a>
+    </div>
+    <div class="items">
+      <a href="" style="text-decoration: none">
+        <img
+          src="https://cdn1.smartprix.com/rx-i6invpMY2-w100-h100/6invpMY2.webp"
+          alt=""
+        />
+        <h6>Laptops</h6>
+      </a>
+    </div>
+    <div class="items">
+      <a href="" style="text-decoration: none">
+        <img
+          src="https://cdn1.smartprix.com/rx-idTmyxzGZ-w100-h100/dTmyxzGZ.webp"
+          alt=""
+        />
+        <h6>TVs</h6>
+      </a>
+    </div>
+
+    <div class="items">
+      <a href="" style="text-decoration: none">
+        <img
+          src="https://cdn1.smartprix.com/rx-iR6SKymCH-w100-h100/R6SKymCH.webp"
+          alt=""
+        />
+        <h6>Cameras</h6>
+      </a>
+    </div>
+    <div class="items">
+      <a href="" style="text-decoration: none">
+        <img
+          src="https://cdn1.smartprix.com/rx-ikAfBBj8K-w100-h100/kAfBBj8K.webp"
+          alt=""
+        />
+        <h6>ACs</h6>
+      </a>
+    </div>
+    <div class="items">
+      <a href="" style="text-decoration: none">
+        <img
+          src="https://cdn1.smartprix.com/rx-i0g6nr7Fk-w100-h100/0g6nr7Fk.webp"
+          alt=""
+        />
+        <h6>Fridge</h6>
+      </a>
+    </div>
+    <div class="items">
+      <a href="" style="text-decoration: none">
+        <img
+          src="https://cdn1.smartprix.com/rx-iUfE0ayqy-w100-h100/UfE0ayqy.webp"
+          alt=""
+        />
+        <h6>Earphones</h6>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row mx-5">
+    <ng-container *ngFor="let item of productList">
+      <div class="col-md-2">
+        <div class="card">
+          <img src="{{ item.image }}" alt="" />
+          <h5 class="itemData">{{ item.title }}</h5>
+          <p>
+            <strong>Price : Rs.{{ item.price }}</strong>
+          </p>
+          <p class="itemData">{{ item.category }}</p>
+          <button class="btn btn-primary">Add to cart</button>
+        </div>
+        <!-- <p class="itemData">{{item.description}}</p> -->
+      </div>
+    </ng-container>
+  </div>
 </div>
