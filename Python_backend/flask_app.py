@@ -13,76 +13,80 @@ driver = webdriver.Chrome(options)
 
 app = Flask(__name__)
 
-@app.route('/get_data',methods = ['GET','POST'])
-def send_data():
+@app.route('/get_data/amazon',methods = ['GET','POST'])
+def send_data_amazon():
     content = request.get_json(silent=True)
     product_name = content["product_name"]
     pincode = content["pincode"]
-
-    response_data = {}
-
     search_param = product_name.replace(" ","+")
 
-    # AMAZON CALLS 
-    driver.get("https://www.google.com/search?q="+search_param+" amazon")
+    try:
+        driver.get("https://www.google.com/search?q="+search_param+" amazon page")
 
-    page_link = driver.find_element(By.XPATH,"//*[@id='rso']/div[2]/div/div/div[1]/div/div/span/a")
+        h3_links=driver.find_elements(By.TAG_NAME,"h3")
 
-    page_link.click()
+        h3_links[0].click()
 
-    time.sleep(2)
+        check_link = driver.find_element(By.ID,"contextualIngressPtLabel_deliveryShortLine")
 
-    item_link = driver.find_element(By.XPATH,"//*[@id='contextualIngressPt']")
+        check_link.click()
 
-    item_link.click()
+        time.sleep(2)
 
-    time.sleep(2)
+        input_field = driver.find_element(By.ID,"GLUXZipUpdateInput")
 
-    input_field = driver.find_element(By.XPATH,"//*[@id='GLUXZipUpdateInput']")
+        input_field.send_keys(pincode)
 
-    input_field.send_keys(pincode)
+        apply_buttons = driver.find_elements(By.CLASS_NAME,"a-button-input")
 
-    apply_button = driver.find_element(By.XPATH,"//*[@id='GLUXZipUpdate']/span/input")
+        apply_buttons[-1].click()
 
-    apply_button.click()
+        delivery_time = driver.find_element(By.ID,"mir-layout-DELIVERY_BLOCK-slot-PRIMARY_DELIVERY_MESSAGE_LARGE")
 
-    time.sleep(2)
+        allChildEle = delivery_time.find_elements(By.XPATH,'*')
 
-    delivery_time = driver.find_element(By.XPATH,"//*[@id='mir-layout-DELIVERY_BLOCK-slot-PRIMARY_DELIVERY_MESSAGE_LARGE']/span/span[1]")
+        for items in allChildEle:
+            delivery_time_text = items.get_attribute('data-csa-c-delivery-time')
 
-    response_data["AMAZON"] = delivery_time.text
-    print("AMAZON DONE")
+        return delivery_time_text
+    
+    except:
+        return "Product is out of stock"
 
-    # FLIPKART CALLS 
-    driver.get("https://www.google.com/search?q="+search_param+" flipart")
 
-    page_link = driver.find_element(By.XPATH,"//*[@id='rso']/div[1]/div/div/div[1]/div/div/span/a")
 
-    page_link.click()
+@app.route('/get_data/flipkart',methods = ['GET','POST'])
+def send_data_flipkart():
+    content = request.get_json(silent=True)
+    product_name = content["product_name"]
+    pincode = content["pincode"]
+    search_param = product_name.replace(" ","+")
 
-    time.sleep(2)
+    try:
+        driver.get("https://www.google.com/search?q="+search_param+" flipkart page")
+    # time.sleep(5)
 
-    input_field = driver.find_element(By.XPATH,"//*[@id='pincodeInputId']")
+        h3_links=driver.find_elements(By.TAG_NAME,"h3")
 
-    input_field.send_keys(pincode)
+        h3_links[0].click()
 
-    change_button = driver.find_element(By.XPATH,"//*[@id='container']/div/div[3]/div[1]/div[2]/div[8]/div/div/div[1]/div[2]/div/div[2]/div/span")
+        input_field = driver.find_element(By.ID,"pincodeInputId")
 
-    change_button.click()
+        input_field.send_keys(pincode)
 
-    time.sleep(2)
+        apply_button = driver.find_element(By.CLASS_NAME,"_2P_LDn")
 
-    delivery_time = driver.find_element(By.XPATH,"//*[@id='container']/div/div[3]/div[1]/div[2]/div[8]/div/div/div[2]/div[1]/ul/div/div/span[1]")
+        apply_button.click()
 
-    response_data["FLIPKART"] = delivery_time.text
+        time.sleep(2)
 
-    print("FLIPKART DONE")
+        delivery_time = driver.find_element(By.CLASS_NAME,"_1TPvTK")
 
-    # return jsonify(response_data)
-    # 
-    # print(response_data)
-    return response_data
-    # return "All good"
+        return delivery_time.text
+    
+    except:
+        return "Product is out of stock"
+
 
 if __name__ == '__main__':
     app.run(host= '0.0.0.0',debug=True)
