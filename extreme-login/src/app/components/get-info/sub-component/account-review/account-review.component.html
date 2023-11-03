@@ -1,0 +1,67 @@
+<div class="parent">
+    <div class="child">
+
+        <h4 style="color: aliceblue;">Create an ExtremeCloud account</h4>
+
+        <form #reviewForm = "ngForm" (ngSubmit)="nextTab(reviewForm)">
+
+        <div class="card text-white mb-3 myCard" style="min-width: 600px;">
+            <div class="card-body">
+              <p class="card-text">While it's not guaranteed to hold up in a court of law, 
+                in the event of a dispute, arbitrators may consider multiple facets of your terms and 
+                conditions document to determine whether each party acted within their rights.</p>
+            </div>
+        </div>
+
+
+        <div class="card text-white mb-3 myCard" style="min-width: 600px;">
+            <div class="card-body">
+              <p class="card-text">(Optional) Extreme Networks may use my contact data to keep me informed of products, services 
+                and offerings</p>
+            </div>
+
+            <div class="form-check form-switch" style="margin-top: -15px;">
+                <input class="form-check-input" type="checkbox" name="dataPrivacy" ngModel required>
+            </div>
+        </div>
+
+
+        <div class="card text-white mb-3 myCard" style="min-width: 600px;">
+            <div class="card-body">
+              <p class="card-text">
+                I accept the product <a href="/terms">Terms and condition</a> of this registration form 
+              </p>
+            </div>
+
+            <div class="form-check form-switch" style="margin-top: -30px;">
+                <input class="form-check-input" type="checkbox" name="terms" ngModel required>
+            </div>
+        </div>
+
+
+        <div class="card text-white mb-3 myCard" style="min-width: 600px;">
+            <div class="card-body" style="display: flex;flex-direction:column;justify-content: center;justify-content: center;">
+              <h5>
+                Send a email copy of registration
+              </h5>
+              <div>
+                <input type="email" class="form-control" name="emailCopy" placeholder="Email address" style="padding-left: 15px;" ngModel required >
+              </div>
+            </div> 
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <button type="submit" style="background-color: transparent;border: 1px solid #8981e5; color:#8981e5" (click)="previousTab()">Back</button>
+            </div>
+            <div class="col">
+                <button type="submit" style="background-color: #8981e5;color: black; border-color: #8981e5;" (click)="nextTab(reviewForm)">Create Account</button>
+            </div>
+        </div>
+        
+    </form>
+
+
+    </div>
+
+</div>

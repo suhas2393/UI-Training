@@ -14,8 +14,8 @@ driver = webdriver.Chrome(options)
 
 
 # DATA 
-product_name = "samsung s23 ultra"
-pincode = "576213"
+product_name = "oneplus nord ce2 lite 5g"
+pincode = "560103"
 
 response_data = {}
 
@@ -115,10 +115,95 @@ def get_amazon_data(name,pin):
     # print("FROM AMAZON : ",delivery_time_text)
     response_data["AMAZON"] = delivery_time_text
 
+def get_jiomart_data(name,pin):
+    driver.get("https://www.google.com/search?q="+name+" jiomart page")
+
+    # time.sleep(10)
+
+    h3_links=driver.find_elements(By.TAG_NAME,"h3")
+
+    time.sleep(2)
+
+    h3_links[1].click()
+
+
+    # print('Link clicked')
+
+    # time.sleep(40)
+    # pin_change_button = driver.find_elements(By.TAG_NAME,'button')
+
+    # for button in pin_change_button:
+    #     print(button.get_attribute('class'))
+
+    pin_change_button = driver.find_element(By.CLASS_NAME,'product-delivery-to-icon')
+    pin_change_button.click()
+    
+    # pin_change_button.click()
+    # print(pin_change_button)
+
+    enter_pincode_button = driver.find_elements(By.TAG_NAME,'button')
+
+    for button in enter_pincode_button:
+        if button.get_attribute('class') == 'jm-btn tertiary jm-pl-xs':
+            req_button = button
+            break
+    
+    
+    # enter_pincode_button = driver.find_element(By.CLASS_NAME,'jm-btn tertiary jm-pl-xs')
+
+    req_button.click()
+
+    pincode_input = driver.find_element(By.ID,'rel_pincode')
+
+    pincode_input.send_keys(pin)
+
+    apply_button = driver.find_element(By.ID,'btn_pincode_submit')
+
+    apply_button.click()
+
+    # time.sleep(10)
+    try:
+
+        delivery_time = driver.find_element(By.CLASS_NAME,'product-delivery-to-between')
+
+        print(delivery_time.text)
+    except:
+        out_of_stock_text = driver.find_element(By.CLASS_NAME,'product-delivery-to-stock-main')
+
+        print(out_of_stock_text.text)
+
+def get_croma_data(name,pin):
+    driver.get("https://www.google.com/search?q="+"croma")
+
+    # time.sleep(10)
+
+    h3_links=driver.find_elements(By.TAG_NAME,"h3")
+
+    time.sleep(20)
+
+    h3_links[1].click()
+
+    
+
+    print('Link clicked')
+
+    # time.sleep(10)
+
+    # pin_change_button = driver.find_element(By.CLASS_NAME,'pdp-pin-change-btn')
+
+    # pin_change_button.click()
+
+    # time.sleep(10)
+
+
 # get_amazon_data(search_param,pincode)
 # time.sleep(2)
-get_flipkart_data(search_param,pincode)
+# get_flipkart_data(search_param,pincode)
+# get_jiomart_data(search_param,pincode)
 
-print(response_data)
+get_croma_data(search_param,pincode)
+
+
+# print(response_data)
 
 

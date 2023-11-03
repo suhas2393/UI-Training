@@ -1,0 +1,132 @@
+<div class="parent">
+  <div class="child">
+    <h4 style="color: aliceblue">Create an ExtremeCloud account</h4>
+
+    <form #aboutYouform="ngForm" (ngSubmit)="nextTab(aboutYouform)">
+      <div class="row">
+        <div class="col">
+          <input
+            type="text"
+            class="form-control"
+            name="firstNameInput"
+            placeholder="First Name"
+            style="padding-left: 15px"
+            ngModel
+            required
+
+          />
+        </div>
+
+        <div class="col">
+          <input
+            type="text"
+            class="form-control"
+            name="lastNameInput"
+            placeholder="Last Name"
+            style="padding-left: 15px"
+            ngModel
+            required
+          />
+        </div>
+      </div>
+
+
+      <div class="col" style="margin-bottom: -20px;">
+        <input
+          type="text"
+          class="form-control"
+          name="username"
+          placeholder="Username / Email Address"
+          style="padding-left: 15px"
+          ngModel
+          required
+
+        />
+      </div>
+
+
+      <div class="row">
+        <div class="col">
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            placeholder="Password"
+            style="padding-left: 15px"
+            ngModel
+            required
+
+          />
+        </div>
+
+        <div class="col">
+          <input
+            type="password"
+            class="form-control"
+            name="confirmPassword"
+            placeholder="Confirm Password"
+            style="padding-left: 15px"
+            ngModel
+            required
+          />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <select class="form-control bg-transparent" style="color: white" name = "jobFunction" ngModel required>
+          <option value="" disabled selected>Job Function</option>
+          <!-- <option>Job Function</option> -->
+          <option>Accounting</option>
+          <option>Billing operations</option>
+          <option>Data Engineering</option>
+          <option>Engineering</option>
+          <option>IT applications</option>
+          <option>Marketing/GTM</option>
+          <option>Product</option>
+          <option>Sales</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <select class="form-control bg-transparent" style="color: white" name = "jobLevel" ngModel required>
+          <!-- <option selected>Job level</option> -->
+          <option value="" disabled selected>Job level</option>
+          <option>Practitioner/Manager</option>
+          <option>Director</option>
+          <option>VP</option>
+          <option>C-Level</option>
+        </select>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <button
+            type="submit"
+            style="
+              background-color: transparent;
+              border: 1px solid #8981e5;
+              color: #8981e5;
+            "
+            (click)="previousTab()"
+          >
+            Back
+          </button>
+        </div>
+        <div class="col">
+          <button
+            type="submit"
+            style="
+              background-color: #8981e5;
+              color: black;
+              border-color: #8981e5;
+            "
+            (click)="nextTab(aboutYouform)"
+          >
+            Continue
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

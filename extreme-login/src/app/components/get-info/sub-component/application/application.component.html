@@ -1,0 +1,123 @@
+<div class="parent">
+  <div class="child">
+    <h4 style="color: aliceblue">Create an ExtremeCloud account</h4>
+
+    <form #applicationForm="ngForm" (ngSubmit)="nextTab(applicationForm)">
+      <div class="preSelect">
+        <div class="card text-white mb-3 myCard" style="min-width: 600px">
+          <div class="card-body">
+            <h5 class="card-title">XIQ - 90 days free trial</h5>
+            <p class="card-text">
+              As a basic pack, XIQ comes with 90 days free trial
+            </p>
+          </div>
+
+          <div class="form-check form-switch" style="margin-top: -10px">
+            <input class="form-check-input" type="checkbox" name="xiq" ngModel required checked />
+            <!-- <label class="form-check-label" for="flexSwitchCheckDefault"></label> -->
+          </div>
+        </div>
+      </div>
+
+      <p style="margin-top: 10px; color: white">
+        Other than XIQ, Extreme offers 3 more applications listed below. Choose
+        them to enable in your interface
+      </p>
+
+      <!-- <div class="fullCard"> -->
+      <div class="card text-white mb-3 myCard" style="max-width: 600px">
+        <div class="card-body">
+          <h5 class="card-title">UZTNA</h5>
+          <p class="card-text">
+            An IT security solution that provides secure remote access to an
+            organization's applications, data, and services
+          </p>
+        </div>
+
+        <div class="form-check form-switch">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="uztna"
+            ngModel 
+            required
+          />
+          <!-- <label class="form-check-label" for="flexSwitchCheckDefault"></label> -->
+        </div>
+      </div>
+
+      <div class="card text-white mb-3 myCard" style="max-width: 600px">
+        <div class="card-body">
+          <h5 class="card-title">XCO</h5>
+          <p class="card-text">
+            The process of automating the tasks needed to manage connections and
+            operations of workloads on private and public clouds
+          </p>
+        </div>
+
+        <div class="form-check form-switch">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="xco"
+            ngModel 
+            required
+          />
+          <!-- <label class="form-check-label" for="flexSwitchCheckDefault"></label> -->
+        </div>
+      </div>
+
+      <div class="card text-white mb-3 myCard" style="max-width: 600px">
+        <div class="card-body">
+          <h5 class="card-title">SD-WAN</h5>
+          <p class="card-text">
+            A technology that uses software-defined networking (SDN) to route
+            and manage traffic across a wide area network
+          </p>
+        </div>
+
+        <div class="form-check form-switch">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="sdwan"
+            ngModel 
+            required
+          />
+          <!-- <label class="form-check-label" for="flexSwitchCheckDefault"></label> -->
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <button
+            type="submit"
+            style="
+              background-color: transparent;
+              border: 1px solid #8981e5;
+              color: #8981e5;
+            "
+            (click)="previousTab()"
+          >
+            Back
+          </button>
+        </div>
+        <div class="col">
+          <button
+            type="submit"
+            style="
+              background-color: #8981e5;
+              color: black;
+              border-color: #8981e5;
+            "
+            (click)="nextTab(applicationForm)"
+          >
+            Continue
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <!-- </div> -->
+  </div>
+</div>

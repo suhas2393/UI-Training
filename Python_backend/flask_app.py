@@ -86,6 +86,54 @@ def send_data_flipkart():
     
     except:
         return "Product is out of stock"
+    
+@app.route('/get_data/jiomart',methods = ['GET','POST'])
+def send_data_jiomart():
+    content = request.get_json(silent=True)
+    product_name = content["product_name"]
+    pincode = content["pincode"]
+    search_param = product_name.replace(" ","+")
+
+    try:
+        driver.get("https://www.google.com/search?q="+search_param+" jiomart page")
+
+        h3_links=driver.find_elements(By.TAG_NAME,"h3")
+
+        time.sleep(2)
+
+        h3_links[1].click()
+
+        pin_change_button = driver.find_element(By.CLASS_NAME,'product-delivery-to-icon')
+        pin_change_button.click()
+
+        enter_pincode_button = driver.find_elements(By.TAG_NAME,'button')
+
+        for button in enter_pincode_button:
+            if button.get_attribute('class') == 'jm-btn tertiary jm-pl-xs':
+                req_button = button
+                break
+
+        req_button.click()
+
+        pincode_input = driver.find_element(By.ID,'rel_pincode')
+
+        pincode_input.send_keys(pincode)
+
+        apply_button = driver.find_element(By.ID,'btn_pincode_submit')
+
+        apply_button.click()
+
+        
+
+        delivery_time = driver.find_element(By.CLASS_NAME,'product-delivery-to-between')
+
+        return delivery_time.text
+
+    except:
+        out_of_stock_text = driver.find_element(By.CLASS_NAME,'product-delivery-to-stock-main')
+
+        return out_of_stock_text.text
+        
 
 
 if __name__ == '__main__':

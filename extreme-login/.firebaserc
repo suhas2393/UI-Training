@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "extreme-login": {
+      "hosting": {
+        "extreme-login": [
+          "extreme-login"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "extreme-login"
+  }
+}

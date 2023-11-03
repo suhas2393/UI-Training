@@ -1,0 +1,29 @@
+<div class="split left">
+
+    <app-about-you (tabDataEvent)="onTabClick($event)" *ngIf="tabIndex === 0"></app-about-you>
+    <app-about-company (tabDataEvent)="onTabClick($event)" *ngIf="tabIndex === 1"></app-about-company>
+    <app-application (tabDataEvent)="onTabClick($event)" *ngIf="tabIndex === 2"></app-application>
+    <app-account-review (tabDataEvent)="onTabClick($event)" *ngIf="tabIndex === 3"></app-account-review>
+</div>
+
+<div class="split right">
+
+    <div class="mainHeading">
+        <span style="padding-right: 90px;color: #79a2f6">Extreme</span><span style="padding-right: 10px;"> Cloud</span>
+    </div>
+    <div class="rightSubHeading">
+        <h3 style="color: #79a2f6">
+            <b>ENTER DETAILS</b>
+        </h3>
+        <p>
+            All details entered will be confidential
+        </p>
+    </div>
+
+    <div class="tabs">
+        <button  (click)="onTabClick(0)">About you</button>
+        <button (click)="onTabClick(1)">About your company</button>
+        <button (click)="onTabClick(2)">Applications</button>
+        <button (click)="onTabClick(3)">Account notice and Review</button>
+    </div>
+</div>

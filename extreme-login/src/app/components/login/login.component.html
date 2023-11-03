@@ -1,0 +1,41 @@
+<div class="parent">    
+    
+    <div class="child">
+        
+        <h3 style="position: relative; color: aliceblue; top: -30px ; left: -100px;"><span style="color: #8981e5;">Extreme </span> <span>Cloud</span></h3>
+
+
+        <h4 style="color: aliceblue;">Login</h4>
+
+        <form #loginForm = "ngForm" (ngSubmit)="loginUser(loginForm)">
+            
+            <div class="form-group">
+                <input type="email" class="form-control" name="username" placeholder="Email" style="padding-left: 15px;" ngModel required>
+            </div>
+
+            <div class="form-group">
+                <input type="password" class="form-control" name="password" placeholder="Password" style="padding-left: 15px;" ngModel required>
+            </div>
+            
+            <div>
+                <a href="/forgotPassword" style="text-decoration: none; color: #8981e5;padding-left: 20px;">Forgot password?</a>
+            </div>
+
+            <button class="btn btn-primary" style="background-color: #8981e5; color: black;" (click)="loginUser(loginForm)">Login</button>
+
+            <!-- <hr style="color: aliceblue; height: 2px; width: 75%; "> -->
+            <h5 id="line"><span>OR</span></h5>
+
+            <button class="btn btn-primary" style="background-color: #8981e5; color: black;">Login with SSO</button>
+
+            
+        </form>
+        
+        <div>
+           <span style="color: white;">Not a user yet?</span>  <a href="/getInfo" style="color:#8981e5;text-decoration: none;"> Create an account</a>
+        </div>
+
+
+    </div>
+    
+</div>
