@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>
+    Observables in Angular 
+  </h2>
+
+  <div class="list" *ngFor="let x of data">
+
+    {{x}}
+
+  </div>
+
+  <button (click)="getAsyncData()">Get Data</button>
+</div>
+
+<hr>
+
+<div class="container">
+  <app-component1></app-component1>
+  <app-component2></app-component2>
+</div>
+
+<hr>
+<h3>Unsubscribe in angular</h3>
+<button (click)="subscribe()">Subscribe</button>
+<button (click)="unSub()">Unsubscribe</button>
