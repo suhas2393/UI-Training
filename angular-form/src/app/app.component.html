@@ -1,0 +1,100 @@
+<div class="form">
+  <h2 id="registration">Registration form</h2>
+  <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
+    <div ngModelGroup="personDetails" #personalDetails="ngModelGroup">
+      <label for="fname"> First Name </label>
+      <input
+        type="text"
+        id="fname"
+        placeholder="Your First Name"
+        name="firstName"
+        ngModel
+        required
+        #fname="ngModel"
+      />
+      <div>
+        <small *ngIf="fname.invalid && fname.touched">
+          First name is a required field
+        </small>
+      </div>
+
+      <label for="lname"> Last Name </label>
+      <input
+        type="text"
+        id="lname"
+        placeholder="Your Last Name"
+        name="lastName"
+        ngModel
+        required
+      />
+
+      <label for="email"> Email </label>
+      <input
+        type="email"
+        id="email"
+        placeholder="Your Email"
+        name="email"
+        ngModel
+        required
+      />
+    </div>
+ 
+    <div *ngIf="personalDetails.invalid && personalDetails.touched">
+      <small> This form is not valid!! </small>
+    </div>
+
+    <label for="country">Country</label>
+    <select id="country" name="country" ngModel>
+      <option value="australia">Australia</option>
+      <option value="canada">Canada</option>
+      <option value="usa">USA</option>
+      <option value="india">India</option>
+    </select>
+
+    <label for="gender">Gender : </label>
+
+    <span *ngFor="let gender of genderList">
+      <input type="radio" id="{{gender.id}}" value="{{gender.value}}" name="gender" [ngModel]="defaultGender" />
+      <label for="name">{{gender.name}}</label>
+    </span>
+    <br />
+    <br />
+
+    <!-- <button (click)="onSubmit()">Submit</button> -->
+    <input
+      type="submit"
+      value="Submit"
+      id="submit"
+      [disabled]="!myForm.valid"
+    />
+
+
+    <button
+    (click)="setDefaultValue(myForm)"
+    >
+      Set Default value
+    </button>
+  </form>
+
+  <div class="result" *ngIf="submitClicked">
+    <p>
+      First name : {{firstName}}
+    </p>
+
+    <p>
+      Last name : {{lastName}}
+    </p>
+
+    <p>
+      Email : {{userEmail}}
+    </p>
+
+    <p>
+      Country : {{userCountry}}
+    </p>
+
+    <p>
+      Gender : {{userGender}}
+    </p>
+  </div>
+</div>
